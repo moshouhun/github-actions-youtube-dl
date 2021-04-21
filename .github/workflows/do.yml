@@ -20,25 +20,14 @@ jobs:
           ./youtube-dl --config-location dl.conf
           zip -s 1984m downloaded.zip downloads/*.mp4
           cat play.list >> body.md
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
-        with:
-          tag_name: ${{ github.run_id }}
-          release_name: Release ${{ github.ref }}
-          body_path: body.md
-          draft: false
-          prerelease: false
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: dwenegar/upload-release-assets@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
-        with:
-          release_id: ${{ steps.create_release.outputs.id }}
-          assets_path: ./downloaded.*
+      - name: Upload firmware to WeTransfer
+        continue-on-error: true
+        run: |
+          curl -fsSL git.io/file-transfer | sh
+          wetrans=$(./transfer wet -s -p 16 --no-progress ./downloaded.*)
+          wetrans=$(echo $wetrans | grep -o -E "https[^ ]*")
+          echo "WETRANS=$wetrans" >> $GITHUB_ENV
+          echo "Download Link: ${{ env.EMOJI }} $wetrans ${{ env.EMOJI }} 🚀"
       - name: Upload firmware to CowTransfer
         id: cowtransfer
         uses: tvrcgo/cowtransfer-action@master
