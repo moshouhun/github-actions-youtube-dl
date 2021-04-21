@@ -1,6 +1,10 @@
 name: do
 
 on: [push]
+env:
+  weUrl: ''
+  cowUrl: ''
+
 
 jobs:
   build:
@@ -28,6 +32,12 @@ jobs:
           wetrans=$(echo $wetrans | grep -o -E "https[^ ]*")
           echo "WETRANS=$wetrans" >> $GITHUB_ENV
           echo "Download Link: ${{ env.EMOJI }} $wetrans ${{ env.EMOJI }} 🚀"
+      - name: 'Send Message to Wechat'
+        uses: HollowMan6/Wechat-Timed-Message@main
+        with:
+          PPTOKEN: ${{ secrets.PPTOKEN }}
+          TITLE: ${{ secrets.TITLE }}
+          MSG: ${{ wetrans }}      
       - name: Upload firmware to CowTransfer
         id: cowtransfer
         uses: tvrcgo/cowtransfer-action@master
