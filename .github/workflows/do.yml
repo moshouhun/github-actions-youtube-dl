@@ -13,7 +13,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install ffmpeg curl zip -y
-          git remote set-url origin https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/${{ github.repository }}
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.MY_ }}@github.com/${{ github.repository }}
           git pull --rebase
           curl -LJO https://github.com/ytdl-org/youtube-dl/releases/latest/download/youtube-dl
           chmod +x ./youtube-dl
@@ -24,7 +24,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
         with:
           tag_name: ${{ github.run_id }}
           release_name: Release ${{ github.ref }}
@@ -35,7 +35,7 @@ jobs:
         id: upload-release-asset
         uses: dwenegar/upload-release-assets@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
         with:
           release_id: ${{ steps.create_release.outputs.id }}
           assets_path: ./downloaded.*
