@@ -37,7 +37,7 @@ jobs:
         with:
           PPTOKEN: ${{ secrets.PPTOKEN }}
           TITLE: ${{ secrets.TITLE }}
-          MSG: ${{ wetrans }}      
+          MSG: wetrans      
       - name: Upload firmware to CowTransfer
         id: cowtransfer
         uses: tvrcgo/cowtransfer-action@master
