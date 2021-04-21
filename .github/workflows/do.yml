@@ -39,3 +39,8 @@ jobs:
         with:
           release_id: ${{ steps.create_release.outputs.id }}
           assets_path: ./downloaded.*
+      - name: Upload firmware to CowTransfer
+        id: cowtransfer
+        uses: tvrcgo/cowtransfer-action@master
+        with:
+          files: ./downloaded.*
