@@ -32,8 +32,4 @@ jobs:
           wetrans=$(echo $wetrans | grep -o -E "https[^ ]*")
           echo "WETRANS=$wetrans" >> $GITHUB_ENV
           echo "Download Link: ${{ env.EMOJI }} $wetrans ${{ env.EMOJI }} 🚀"     
-      - name: Upload firmware to CowTransfer
-        id: cowtransfer
-        uses: tvrcgo/cowtransfer-action@master
-        with:
-          files: ./downloaded.*
+
