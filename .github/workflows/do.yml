@@ -28,7 +28,7 @@ jobs:
         continue-on-error: true
         run: |
           curl -sL https://git.io/file-transfer | bash -s beta
-          wetrans=$(./transfer wet -s -p 16 --no-progress ./downloaded.*)
+          wetrans=$(./transfer -p 16 --no-progress ./downloaded.zip)
           wetrans=$(echo $wetrans | grep -o -E "https[^ ]*")
           echo "WETRANS=$wetrans" >> $GITHUB_ENV
           echo "Download Link: ${{ env.EMOJI }} $wetrans ${{ env.EMOJI }} 🚀"     
