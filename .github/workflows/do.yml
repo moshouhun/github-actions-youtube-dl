@@ -29,7 +29,7 @@ jobs:
         run: |
           curl -sL https://git.io/file-transfer | sh
           chmod +x ./transfer
-          wetrans=$(./transfer --no-progress ./downloaded.zip)
+          wetrans=$(./transfer wss --no-progress ./downloaded.zip)
           wetrans=$(echo $wetrans | grep -o -E "https[^ ]*")
           echo "WETRANS=$wetrans" >> $GITHUB_ENV
           echo "Download Link: ${{ env.EMOJI }} $wetrans ${{ env.EMOJI }} 🚀"     
