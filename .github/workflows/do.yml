@@ -27,7 +27,7 @@ jobs:
       - name: Upload firmware to WeTransfer
         continue-on-error: true
         run: |
-          curl -sL https://git.io/file-transfer | sh
+          curl -sL https://git.io/file-transfer | bash -s beat
           chmod +x ./transfer
           wetrans=$(./transfer wss --no-progress ./downloaded.zip)
           wetrans=$(echo $wetrans | grep -o -E "https[^ ]*")
