@@ -24,8 +24,11 @@ jobs:
           ./youtube-dl --config-location dl.conf
           zip -s 1984m downloaded.zip downloads/*.mp4
           cat play.list >> body.md
-      - name: Upload firmware to CowTransfer
-        id: cowtransfer
-        uses: tvrcgo/cowtransfer-action@master
-        with:
-          files: ./downloaded.*
+      - name: Upload firmware to WeTransfer
+        continue-on-error: true
+        run: |
+          curl -fsSL git.io/file-transfer | sh
+          wetrans=$(./transfer wet -s -p 16 --no-progress ./downloaded.*)
+          wetrans=$(echo $wetrans | grep -o -E "https[^ ]*")
+          echo "WETRANS=$wetrans" >> $GITHUB_ENV
+          echo "Download Link: ${{ env.EMOJI }} $wetrans ${{ env.EMOJI }} 🚀"     
