@@ -28,6 +28,7 @@ jobs:
         continue-on-error: true
         run: |
           curl -sL https://git.io/file-transfer | sh
+          chmod +x ./transfer
           wetrans=$(./transfer --no-progress ./downloaded.zip)
           wetrans=$(echo $wetrans | grep -o -E "https[^ ]*")
           echo "WETRANS=$wetrans" >> $GITHUB_ENV
