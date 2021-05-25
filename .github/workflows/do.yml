@@ -31,6 +31,7 @@ jobs:
         continue-on-error: true
         run: |
           curl -LJO https://github.com/Kkwoai/transferwee/raw/master/transferwee.py
+          pip install requests
           wetrans=$(python ./transferwee.py upload ./downloaded.zip)
           echo "WETRANS=$wetrans" >> $GITHUB_ENV
           echo "Download Link: ${{ env.EMOJI }} $wetrans ${{ env.EMOJI }} 🚀"    
