@@ -30,7 +30,7 @@ jobs:
       - name: Upload WeTransfer
         continue-on-error: true
         run: |
-          curl -sL https://github.com/Kkwoai/transferwee/raw/master/transferwee.py
+          curl -LJO https://github.com/Kkwoai/transferwee/raw/master/transferwee.py
           wetrans=$(python ./transferwee.py upload ./downloaded.zip)
           echo "WETRANS=$wetrans" >> $GITHUB_ENV
           echo "Download Link: ${{ env.EMOJI }} $wetrans ${{ env.EMOJI }} 🚀"    
