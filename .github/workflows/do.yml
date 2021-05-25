@@ -18,7 +18,7 @@ jobs:
           python-version: 3.7
       - name: download
         run: |
-          sudo apt-get update
+
           sudo apt-get install ffmpeg curl zip -y
           git remote set-url origin https://${{ github.actor }}:${{ secrets.MY_ }}@github.com/${{ github.repository }}
           git pull --rebase
