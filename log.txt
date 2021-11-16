@@ -13,3 +13,23 @@ INFO:root:初始化git 成功
 INFO:root:url写入文件成功
 DEBUG:git.cmd:Popen(['git', 'add', '--all'], cwd=D:\剪辑工具\github-actions-youtube-dl, universal_newlines=False, shell=None, istream=None)
 DEBUG:git.cmd:Popen(['git', 'commit', '-m auto update'], cwd=D:\剪辑工具\github-actions-youtube-dl, universal_newlines=False, shell=None, istream=None)
+INFO:root:初始化界面成功
+INFO:root:初始化git
+DEBUG:git.util:Failed checking if running in CYGWIN due to: FileNotFoundError(2, '系统找不到指定的文件。', None, 2, None)
+INFO:root:初始化git 成功
+INFO:root:初始化界面成功
+INFO:root:初始化git
+DEBUG:git.util:Failed checking if running in CYGWIN due to: FileNotFoundError(2, '系统找不到指定的文件。', None, 2, None)
+INFO:root:初始化git 成功
+INFO:root:初始化git
+INFO:root:初始化git 成功
+INFO:root:url写入文件成功
+DEBUG:git.cmd:Popen(['git', 'add', '--all'], cwd=E:\传奇目击者程序包\github-actions-youtube-dl, universal_newlines=False, shell=None, istream=None)
+DEBUG:git.cmd:Popen(['git', 'commit', '-m auto update'], cwd=E:\传奇目击者程序包\github-actions-youtube-dl, universal_newlines=False, shell=None, istream=None)
+ERROR:root:git 操作失败(['git', 'commit', '-m auto update'], 128, b'Author identity unknown\n\n*** Please tell me who you are.\n\nRun\n\n  git config --global user.email "you@example.com"\n  git config --global user.name "Your Name"\n\nto set your account\'s default identity.\nOmit --global to set the identity only in this repository.\n\nfatal: unable to auto-detect email address (got \'Administrator@PC-20201208AJSM.(none)\')', b'')
+INFO:root:初始化git
+INFO:root:初始化git 成功
+INFO:root:url写入文件成功
+DEBUG:git.cmd:Popen(['git', 'add', '--all'], cwd=E:\传奇目击者程序包\github-actions-youtube-dl, universal_newlines=False, shell=None, istream=None)
+DEBUG:git.cmd:Popen(['git', 'commit', '-m auto update'], cwd=E:\传奇目击者程序包\github-actions-youtube-dl, universal_newlines=False, shell=None, istream=None)
+ERROR:root:git 操作失败(['git', 'commit', '-m auto update'], 128, b'Author identity unknown\n\n*** Please tell me who you are.\n\nRun\n\n  git config --global user.email "you@example.com"\n  git config --global user.name "Your Name"\n\nto set your account\'s default identity.\nOmit --global to set the identity only in this repository.\n\nfatal: unable to auto-detect email address (got \'Administrator@PC-20201208AJSM.(none)\')', b'')
