@@ -22,9 +22,9 @@ jobs:
           sudo apt-get install ffmpeg curl zip -y
           git remote set-url origin https://${{ github.actor }}:${{ secrets.MY_ }}@github.com/${{ github.repository }}
           git pull --rebase
-          curl -LJO https://github.com/ytdl-org/youtube-dl/releases/latest/download/youtube-dl
-          chmod +x ./youtube-dl
-          ./youtube-dl --config-location dl.conf
+          curl -LJO https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp
+          chmod +x ./yt-dlp
+          ./yt-dlp --config-location dl.conf
           zip -s 1984m downloaded.zip downloads/*
           cat play.list >> body.md
 
